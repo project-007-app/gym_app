@@ -1,29 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
-import { Appbar } from 'react-native-paper';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from '../gym_app/src/screens/HomeScreen';
 
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Appbar.Header>
-     
-      <Appbar.Content title="GYM" />
-      
-    </Appbar.Header>
-       
-       <Card>
-         <Text>HI</Text>
-        </Card>
-      
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-
-const styles = StyleSheet.create({
- 
+const navigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: ({ navigation }) => {
+      return {
+        headerTitle: "EAT FIT",
+        headerTitleStyle: {
+          color: "white",
+          textAlign:"center"
+        },
+        headerStyle: {
+          backgroundColor: "#5BBC9D"
+        },
+      };
+    }
+  },
+  
 });
+
+
+
+export default createAppContainer(navigator);
+
+
