@@ -1,11 +1,31 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import Card from '../screens/Card';
 
 const HomeScreen = ()=>
 {
     return <View>
-        <Text>HOme</Text>
+         <View style={styles.outerContainer}>
+      <ScrollView>
+       <Card>
+         <Text>HI</Text>
+        </Card>
+        <Card>
+         <Text>HI</Text>
+        </Card>
+        <Card>
+         <Text>HI</Text>
+        </Card>
+        <Card>
+         <Text>HI</Text>
+        </Card>
+        </ScrollView>
+      </View>
+      
+      
     </View>
+    
 };
 
 const styles = StyleSheet.create({});
