@@ -1,21 +1,18 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-
-import { Card } from 'react-native-elements';
-import ProgressCircle from 'react-native-progress-circle'
-
-
-
-
-
-
+import React,{useState} from 'react';
+import {View, Text, StyleSheet,TouchableOpacity } from 'react-native';
+import ProgressCircle from 'react-native-progress-circle';
+import Aqua from './Aqua'
 
 
 const HomeScreen = ()=>
 {
+
+    const [currentState, setCurrentState] = useState(false);
+    const returnPageHandler = ()=>{setCurrentState(false);}
     return (<View>
-        <Card style={styles.card}>
+         <TouchableOpacity activeOpacity="0.5" >
+        <View style={styles.inputContainer}>
+      
         <ProgressCircle
             percent={30}
             radius={50}
@@ -26,26 +23,49 @@ const HomeScreen = ()=>
         >
             <Text style={{ fontSize: 20 ,color:"#3399FF"}}>{'30%'}</Text>
         </ProgressCircle>
-        <Text> </Text>
-        </Card>
-        <Card style={styles.card}>
-         <Text>HI</Text>
-        </Card>
         
-      </View>
-      
-      
-  
-    
+       
+       </View>
+       </TouchableOpacity>
+
+       <TouchableOpacity activeOpacity="0.5" onPress={()=>{setCurrentState(true)}}>
+           <Aqua visible={currentState} returnHandler={returnPageHandler} />
+        <View style={styles.inputContainer}>
+        <ProgressCircle
+            percent={70}
+            radius={50}
+            borderWidth={8}
+            color="#3399FF"
+            shadowColor="#999"
+            bgColor="#fff"
+        >
+            <Text style={{ fontSize: 20 ,color:"#3399FF"}}>{'70%'}</Text>
+        </ProgressCircle>
+         
+        </View>  
+        </TouchableOpacity>     
+      </View>     
     )};
-
 const styles = StyleSheet.create({
-    card:{
-        margin:30,
-        height:100,
-        width:"80%",
-    },
-
-});
-
+      inputContainer : {
+        paddingTop: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        margin: 25,
+        width: '90%',
+        height: 200,
+        borderRadius: 20,
+        alignItems: 'center',
+        shadowColor: 'black',
+        shadowOffset: {
+          width: 3,
+          height: 3
+        },
+       shadowRadius: 1,
+       shadowOpacity:0.5,
+       elevation: 5,
+       backgroundColor: '#c5cae9'
+      }
+     });
 export default HomeScreen;

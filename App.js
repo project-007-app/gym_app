@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../gym_app/src/screens/HomeScreen';
 
 
+
 const navigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
